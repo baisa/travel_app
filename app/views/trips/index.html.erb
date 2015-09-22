@@ -1,0 +1,17 @@
+<h1>All my trips</h1>
+
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+ 
+  <% @trips.each do |trip| %>
+    <tr>
+      <td><%= trip.title %></td>
+      <td><%= trip.description %></td>
+    </tr>
+  <% end %>
+</table>
+
