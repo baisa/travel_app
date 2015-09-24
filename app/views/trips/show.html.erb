@@ -1,11 +1,46 @@
-<p>
-  <strong>Title:</strong>
+
+<div class="container-fluid" style="padding-left: 3em; padding-right: 3em">
+
+
+<div class="jumbotron">
+  <h2>Our trip!</h2>
+  <p>
+  <strong>We are going to</strong>
   <%= @trip.title %>
 </p>
  
 <p>
-  <strong>Description:</strong>
+  <strong>It is going to be</strong>
   <%= @trip.description %>
 </p>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+</div>
+
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<div class="row">
+  <% @icons.each do |icon| %>
+  <div class="col-xs-6 col-md-4" style="padding-left: 0px; padding-right: 0px">
+    <div style="width:100%; height:15em; border: 0.2em solid black">
+      <span style="line-height:15em; display:table; margin:0 auto"><i class="fa <%= icon %>  fa-5x"> </i>
+      </span>
+
+    </div>
+  </div>
+ <% end %>
+</div>
+
+<!-- Columns are always 50% wide, on mobile and desktop -->
+<div class="row">
+  <div class="col-xs-6">.col-xs-6</div>
+  <div class="col-xs-6">.col-xs-6</div>
+</div>
+</div>
+
+
 <%= link_to 'Edit', edit_trip_path(@trip) %>
 <%= link_to 'Back', trips_path %>

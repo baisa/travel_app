@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+
   
   def index
     @trips = Trip.all
@@ -7,6 +8,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @icons = ["fa-users", "fa-bed", "fa-car", "fa-calendar", "fa-list", "fa-dollar"]
   end
 
   def new
