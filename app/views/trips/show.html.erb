@@ -1,9 +1,23 @@
-
 <div class="container-fluid" style="padding-left: 3em; padding-right: 3em">
 
 
 <div class="jumbotron">
   <h2>Our trip!</h2>
+
+  <div class="btn-group" style="left: 65em; position:relative; bottom:7em">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Welcome, user <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Sign out</a></li>
+    <li><a href="#"><%= link_to 'Change the trip details', edit_trip_path(@trip) %></a></li>
+  </ul>
+</div>
+
+  <button type="button" class="btn btn-default" style="left: 70em; position:relative; bottom:7em">
+    <%= link_to 'See all my trips', trips_path %>
+  </button>
+
   <p>
   <strong>We are going to</strong>
   <%= @trip.title %>
@@ -17,12 +31,6 @@
 
 
 <div class="row">
-  <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
-  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-</div>
-
-<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
-<div class="row">
   <% @icons.each do |icon| %>
   <div class="col-xs-6 col-md-4" style="padding-left: 0px; padding-right: 0px">
     <div style="width:100%; height:15em; border: 0.2em solid black">
@@ -34,13 +42,6 @@
  <% end %>
 </div>
 
-<!-- Columns are always 50% wide, on mobile and desktop -->
-<div class="row">
-  <div class="col-xs-6">.col-xs-6</div>
-  <div class="col-xs-6">.col-xs-6</div>
-</div>
-</div>
-
 
 <%= link_to 'Edit', edit_trip_path(@trip) %>
-<%= link_to 'Back', trips_path %>
+
