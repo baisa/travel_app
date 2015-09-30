@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'trips/index'
   resources :trips do
     resources :costs
+    resources :documents
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
