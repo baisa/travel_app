@@ -1,0 +1,15 @@
+<h1> Trips documents </h1>
+
+<table>
+  <tr>
+    <th>Title</th> 
+  </tr>
+ 
+  <% @documents.each do |document| %>
+    <tr>
+      <td><%= document.title %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New Document', new_trip_document_path %>
