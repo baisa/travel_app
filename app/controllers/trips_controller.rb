@@ -8,7 +8,14 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-    @icons = ["fa-users", "fa-bed", "fa-car", "fa-calendar", "fa-list", "fa-dollar"]
+    @elems = [
+      { name: "People", url: trip_documents_path(@trip), icon: "fa-users" },
+      { name: "Accomodation", url: trip_documents_path(@trip), icon: "fa-bed" },
+      { name: "Transport", url: trip_documents_path(@trip), icon: "fa-car" },
+      { name: "Ideas", url: trip_documents_path(@trip), icon: "fa-lightbulb-o" },
+      { name: "Documents", url: trip_documents_path(@trip), icon: "fa-file-text-o" },
+      { name: "Costs", url: trip_costs_path(@trip), icon: "fa-dollar" },
+    ]
   end
 
   def new

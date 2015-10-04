@@ -6,7 +6,7 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    @trip = Trip.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
     @document = @trip.documents.find(params[:id])
   end
 
@@ -27,7 +27,7 @@ class DocumentsController < ApplicationController
   private
 
   def document_params
-    params.require(:document).permit(:title)
+    params.require(:document).permit(:title, :file)
   end
 
 
