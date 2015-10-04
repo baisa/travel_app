@@ -8,6 +8,32 @@
 </head>
 <body>
   <div class="container-fluid" style="padding-left: 6em; padding-right: 6em">
+    <div class="row">
+      <h2>Our trip!</h2>
+    </div>
+    <div class="row">
+      <div class="btn-group" style="left: 65em; position:relative; bottom:2.5em">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Welcome, user <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Sign out</a></li>
+          <li><a href="#"><%= link_to 'Change the trip details', edit_trip_path(@trip) %></a></li>
+        </ul>
+      </div>
+
+      <button type="button" class="btn btn-default" style="left: 70em; position:relative; bottom:2.5em">
+        <%= link_to 'See all my trips', trips_path %>
+      </button>
+      <p>
+        <strong>We are going to</strong>
+        <%= @trip.title %>
+      </p>
+      <p>
+        <strong>It is going to be</strong>
+        <%= @trip.description %>
+      </p>
+    </div>
 <%= yield %>
   </div>
 </body>
