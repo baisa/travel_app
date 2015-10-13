@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :trips do
     resources :costs
     resources :documents
+    resources :participants
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
