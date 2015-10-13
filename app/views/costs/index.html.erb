@@ -1,4 +1,4 @@
-
+<%= render 'description' %>
 <h1>All costs for the trip to <%= @trip.title %> </h1>
 
 <table>
@@ -21,7 +21,7 @@
 <h2> Total costs of the trip </h2>
 <% array = [] %>
 <% @costs.each do |cost| %>
-  <% array << cost.amount %> 
+  <% array << cost.amount.to_s.to_d %> 
   <% end %>
 <p>
 <%= array.inject(:+) %>

@@ -11,6 +11,7 @@ class DocumentsController < ApplicationController
   end
 
   def new
+    @trip = Trip.find(params[:trip_id])
     @document = Document.new
   end
 
