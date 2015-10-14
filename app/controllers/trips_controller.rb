@@ -9,7 +9,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @elems = [
-      { name: "People", url: trip_documents_path(@trip), icon: "fa-users" },
+      { name: "People", url: trip_participants_path(@trip), icon: "fa-users" },
       { name: "Accomodation", url: trip_documents_path(@trip), icon: "fa-bed" },
       { name: "Transport", url: trip_documents_path(@trip), icon: "fa-car" },
       { name: "Ideas", url: trip_documents_path(@trip), icon: "fa-lightbulb-o" },
