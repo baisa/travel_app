@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 20151014192249) do
   create_table "assignments", force: :cascade do |t|
     t.integer  "participant_id"
     t.integer  "todo_id"
-    t.integer  "trip_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
-  add_index "assignments", ["trip_id"], name: "index_assignments_on_trip_id"
+  add_index "assignments", ["participant_id"], name: "index_assignments_on_participant_id"
+  add_index "assignments", ["todo_id"], name: "index_assignments_on_todo_id"
 
   create_table "costs", force: :cascade do |t|
     t.string   "title"

@@ -9,6 +9,7 @@ class TodosController < ApplicationController
   def create
     @trip = Trip.find(params[:trip_id])
     @todo = @trip.todos.create(todo_params)
+    @todo.participant_ids = params[:participants]
     redirect_to trip_todos_path(@trip)
   end
 
@@ -21,7 +22,7 @@ class TodosController < ApplicationController
 
   private
     def todo_params
-      params.require(:todo).permit(:task)
+      params.require(:todo).permit(:task, :participants => [])
     end
 
 end

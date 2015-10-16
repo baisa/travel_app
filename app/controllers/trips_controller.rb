@@ -10,7 +10,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @elems = [
       { name: "People", url: trip_participants_path(@trip), icon: "fa-users" },
-      { name: "Accomodation", url: trip_documents_path(@trip), icon: "fa-bed" },
+      { name: "Todo before trip", url: trip_documents_path(@trip), icon: "fa-list-ol" },
       { name: "Transport", url: trip_documents_path(@trip), icon: "fa-car" },
       { name: "Ideas", url: trip_documents_path(@trip), icon: "fa-lightbulb-o" },
       { name: "Documents", url: trip_documents_path(@trip), icon: "fa-file-text-o" },

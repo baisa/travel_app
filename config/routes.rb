@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     resources :documents
     resources :participants
     resources :todos
-    resources :assignments
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

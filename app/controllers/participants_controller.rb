@@ -9,6 +9,9 @@ class ParticipantsController < ApplicationController
   def create
     @trip = Trip.find(params[:trip_id])
     @participant = @trip.participants.create(participant_params)
+    
+    @todo = Todo.new
+    @todo.participants << @participant
     redirect_to trip_participants_path(@trip)
   end
 
