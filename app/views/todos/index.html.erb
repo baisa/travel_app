@@ -23,14 +23,19 @@
     <%= f.text_field :task %>
   </p>
 
-  <p> Choose responsible participant
-   <%= select_tag "participants", options_for_select(@trip.participants.map { |p| [p.name, p.id]}), multiple: true %>
+  <p> Choose responsible participant </p>
+  <p> <%= select_tag "participants", options_for_select(@trip.participants.map { |p| [p.name, p.id]}), multiple: true %>
   </p>
   <p>
     <%= f.submit %>
   </p>
 <% end %>
 
+<select multiple="multiple" id="my-select" name="my-select[]">
+  <%= @trip.participants.each do |p| %> 
+      <option value='<% p.id %>'><%= p.name %></option>
 
+  <% end %>
+  </select>
 
 <%= link_to 'Back', trips_path %>
