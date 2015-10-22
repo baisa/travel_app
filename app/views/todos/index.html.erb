@@ -1,41 +1,42 @@
-<h1>All todos for the trip to <%= @trip.title %> </h1>
-
-<table>
-  <tr>
-    <th>Task</th>
-  </tr>
-  <% @todos.each do |todo| %>
+<div class="panel panel-default" style="width: 40%">
+  <div class="panel-heading"><h3>All tasks to do before our trip to  <%= @trip.title %></h3></div>
+  <table class="table">
     <tr>
-      <td><%= todo.task %></td>
-      <td><%= todo.participants.map {|p| p.name}.join(",") %></td>
-      <td><%= link_to 'Destroy', [todo.trip, todo],
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+     <th>Task</th>
+     <th>Who is responsible</th>
     </tr>
+      <% @todos.each do |todo| %>
+      <tr>
+        <td><%= todo.task %></td>
+        <td><%= todo.participants.map {|p| p.name}.join(",") %></td>
+        <td><%= link_to 'Delete this task', [todo.trip, todo],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      </tr>
   <% end %>
-</table>
+  </table>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Add New Task</div>
+  <div class="panel-body">
+    <%= form_for [:trip, @todo] do |f| %>
+      <p>
+        <%= f.label :task %><br>
+        <%= f.text_field :task %>
+      </p>
+      <p> Choose responsible participant </p>
+      <p>
+        <%= select_tag "participants", options_for_select(@trip.participants.map { |p| [p.name, p.id]}), multiple: true %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
+  </div>
 
 
-<h3>Add New Task</h3>
-<%= form_for [:trip, @todo] do |f| %>
-  <p>
-    <%= f.label :task %><br>
-    <%= f.text_field :task %>
-  </p>
 
-  <p> Choose responsible participant </p>
-  <p> <%= select_tag "participants", options_for_select(@trip.participants.map { |p| [p.name, p.id]}), multiple: true %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<select multiple="multiple" id="my-select" name="my-select[]">
-  <%= @trip.participants.each do |p| %> 
-      <option value='<% p.id %>'><%= p.name %></option>
-
-  <% end %>
-  </select>
-
+ 
 <%= link_to 'Back', trips_path %>
