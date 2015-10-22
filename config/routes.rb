@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'trips/index'
+  get 'main/index'
   resources :trips do
     resources :costs
     resources :documents
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'trips#index'
+  root 'main#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
