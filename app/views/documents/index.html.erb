@@ -8,6 +8,10 @@
   <% @documents.each do |document| %>
     <tr>
       <td><%= document.title %></td>
+      <td><a href=<%= document.file %>> Show </a></td>
+      <td><%= link_to 'Destroy', [document.trip, document],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
