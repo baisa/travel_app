@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   get 'main/index'
   resources :trips do
     resources :costs
