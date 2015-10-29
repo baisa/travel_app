@@ -1,5 +1,15 @@
 <h1> Sign up </h1>
 <%= form_for @user, url: users_path do |f| %>
+  <% if @user.errors.any? %>
+  <div>
+    <h2> Form is invalid </h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
