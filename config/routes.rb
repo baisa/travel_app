@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  resources :sessions
   resources :users
   get 'main/index'
   resources :trips do
