@@ -1,3 +1,4 @@
+<%= render 'description' %>
 <div class="panel panel-default" style="width: 40%">
   <div class="panel-heading"><h3>All tasks to do before our trip to  <%= @trip.title %></h3></div>
   <table class="table">
@@ -36,6 +37,7 @@
   </div>
   </div>
 
+<%= link_to 'Back', trip_path(@trip) %>
 
 
  
