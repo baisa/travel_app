@@ -1,17 +1,19 @@
 <%= render 'description' %>
-<h1>New Document</h2>
-<%= form_for(@document, url: trip_documents_path) do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%=f.file_field :file %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+  <div class="col-md-10">
+    <h1>New Document</h2>
+    <%= form_for(@document, url: trip_documents_path) do |f| %>
+      <p>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </p>
+      <p>
+        <%=f.file_field :file %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
+</div>
 
-<%= link_to 'Back', trips_path %>
 

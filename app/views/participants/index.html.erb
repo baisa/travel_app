@@ -1,32 +1,29 @@
 <%= render 'description' %>
-<h1>All participants for the trip to <%= @trip.title %> </h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
- 
-  <% @participants.each do |participant| %>
-    <tr>
-      <td><%= participant.name %></td>
-      <td><%= link_to 'Destroy', [participant.trip, participant],
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
-
-<h3>Add New Participant</h3>
-<%= form_for [:trip, @participant] do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', trip_path(@trip) %>
+  <div class="col-md-10">
+    <h1>All participants for the trip to <%= @trip.title %> </h1>
+    <table>
+      <tr>
+        <th>Name</th>
+      </tr> 
+      <% @participants.each do |participant| %>
+        <tr>
+          <td><%= participant.name %></td>
+          <td><%= link_to 'Destroy', [participant.trip, participant],
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </table>
+    <h3>Add New Participant</h3>
+    <%= form_for [:trip, @participant] do |f| %>
+      <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
+</div>
 

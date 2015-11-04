@@ -1,34 +1,16 @@
-<div class="row">
-  <h1>Our trip to <%= @trip.title %>!</h1>
-</div>
-<div class="row">
-  <div class="btn-group" style="left: 65em; position:relative; bottom:2.5em">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Welcome, user <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Sign out</a></li>
-    </ul>
-  </div>
-
-  <button type="button" class="btn btn-default" style="left: 70em; position:relative; bottom:2.5em">
-    <%= link_to 'See all my trips', trips_path %>
-  </button>
-  <h4>
-    It is going to be <%= @trip.description %>.
-  </h4>
-</div>
-<br>
-<div class="row">
-  <% @elems.each do |elem| %>
-  <div class="col-xs-6 col-md-4" style="padding-left: 0px; padding-right: 0px; line-height:4em">
-    <div style="width:100%; border: 0.2em solid black;  padding-top: 2em">
-      <div style="display:table; margin:0 auto"><i class="fa <%= elem[:icon] %>  fa-5x"> </i> 
-      <p><%= link_to elem[:name], elem[:url], {:style=>'color:black; font-family:"Verdana"', :class => "css_class"} %></p>
+<%= render 'description' %>
+<h3>Trip to <%= @trip.title %></h3>
+    <div class="row">
+      <% @elems.each do |elem| %>
+      <div class="col-xs-6 col-md-4" style="padding-left: 0px; padding-right: 0px; line-height:4em">
+        <div style="width:100%; border: 0.2em solid black;  padding-top: 2em">
+          <div style="display:table; margin:0 auto"><i class="fa <%= elem[:icon] %>  fa-5x"> </i> 
+          <p><%= link_to elem[:name], elem[:url], {:style=>'color:black; font-family:"Verdana"', :class => "css_class"} %></p>
+          </div>
+          
+        </div>
       </div>
-      
+     <% end %>
     </div>
-  </div>
- <% end %>
-</div>
+  
 
