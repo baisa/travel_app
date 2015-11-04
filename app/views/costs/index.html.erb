@@ -28,18 +28,14 @@
   </p>
 
   <h3>Add New Cost</h3>
-  <%= form_for [:trip, @cost] do |f| %>
-    <p>
-      <%= f.label :title %><br>
+  <%= bootstrap_form_for [:trip, @cost] do |f| %>
+
       <%= f.text_field :title %>
-    </p>
-    <p>
-      <%= f.label :amount %><br>
+
       <%= f.number_field :amount, :class => 'text_field', :step => 'any' %>
-    </p> 
-    <p>
+  
       <%= f.submit %>
-    </p>
+    
   <% end %>
 </div>
 </div>
