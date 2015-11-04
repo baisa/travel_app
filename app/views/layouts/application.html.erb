@@ -8,13 +8,14 @@
    <link href="path/to/todos.css" media="screen" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="container-fluid" style="padding-left: 6em; padding-right: 6em">
-  
-<%= yield %>
-  <% flash.each do |name, msg| -%>
-    <%= content_tag :div, msg, class: name %>
-  <% end -%>
-  <div class="row">
+  <div class="container-fluid" style="padding-left: 6em; padding-right: 6em">
+   <div class="row" style="padding-bottom: 6em"> 
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+    <%= yield %>
+  </div>
+  </div>
     <nav class="navbar navbar-default navbar-fixed-bottom" style="width: 92.714em; margin-left: 6em">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -27,7 +28,7 @@
         </div>
       </div>
    </nav>
-  </div>
-</div>
+  
+
 </body>
 </html>

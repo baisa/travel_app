@@ -3,10 +3,11 @@
   <div class="col-md-10">
   <h3>Trip to <%= @trip.title %></h3>
     <div style="width: 45%"><h4>All tasks to do before our trip</h4>
-      <table class="table">
+      <table class="table table-bordered table-hover">
         <tr>
          <th>Task</th>
          <th>Who is responsible</th>
+         <th>Delete</th>
         </tr>
           <% @todos.each do |todo| %>
           <tr>

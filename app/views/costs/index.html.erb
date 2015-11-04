@@ -1,6 +1,7 @@
 <%= render 'description' %>
 <div class="col-md-10">
-  <h1>All costs for the trip to <%= @trip.title %> </h1>
+  <h3>Trip to <%= @trip.title %></h3>
+  <h4>COSTS FOR THIS TRIP</h4>
   <table>
     <tr>
       <th>Title</th>
@@ -18,24 +19,24 @@
     <% end %>
   </table>
 
-  <h2> Total costs of the trip </h2>
   <% array = [] %>
   <% @costs.each do |cost| %>
     <% array << cost.amount.to_s.to_d %> 
     <% end %>
   <p>
-  <%= array.inject(:+) %>
+  <h4> Estimated cost of the trip: <%= array.inject(:+) %> EUR</h4>
   </p>
+  <div style="width: 25%">
+    <h4>ADD NEW COST</h4>
+    <%= bootstrap_form_for [:trip, @cost] do |f| %>
 
-  <h3>Add New Cost</h3>
-  <%= bootstrap_form_for [:trip, @cost] do |f| %>
+        <%= f.text_field :title, hide_label: true, placeholder: "Add a cost..."  %>
 
-      <%= f.text_field :title %>
+        <%= f.number_field :amount, :class => 'text_field', :step => 'any', prepend: "$", hide_label: true, placeholder: "Amount"  %>
 
-      <%= f.number_field :amount, :class => 'text_field', :step => 'any' %>
-  
-      <%= f.submit %>
-    
-  <% end %>
+        <%= f.submit %>
+      
+    <% end %>
+  </div>
 </div>
 </div>
