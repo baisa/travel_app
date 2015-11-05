@@ -1,6 +1,5 @@
 class TripsController < ApplicationController
 
-  
   def index
     @trips = Trip.all
     #dostep do wszytskich tripow uzytkownika

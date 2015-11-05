@@ -19,7 +19,7 @@
           <div class="navbar-header">
             <a class="navbar-brand" href="#">TRAVEL APP</a>
           </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">              
             <ul class="nav navbar-nav navbar-right">
               <li><%= link_to 'See all my trips', trips_path %></li>
               <li class="dropdown">
@@ -30,6 +30,20 @@
               </li>
             </ul>
           </div>
+
+          <div>
+            <% if current_user %>
+              <%= link_to 'See all my trips', trips_path %>
+              Logged in as <%= current_user.email %>
+              <%= link_to "Log Out", session_path("current"), method: "delete" %>
+            <% else %>
+              <%= link_to "Sign Up", new_user_path %> or
+              <%= link_to "Log In", new_session_path %>
+            <% end %>
+          </div>
+
+
+
         </div>
       </nav>
     </div>
