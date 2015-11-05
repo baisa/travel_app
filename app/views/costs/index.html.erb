@@ -1,4 +1,3 @@
-<%= render 'description' %>
 <div class="col-md-10">
   <h3>Trip to <%= @trip.title %></h3>
   <h4>COSTS FOR THIS TRIP</h4>
@@ -7,7 +6,6 @@
       <th>Title</th>
       <th>Amount</th>
     </tr>
-   
     <% @costs.each do |cost| %>
       <tr>
         <td><%= cost.title %></td>
@@ -18,7 +16,6 @@
       </tr>
     <% end %>
   </table>
-
   <% array = [] %>
   <% @costs.each do |cost| %>
     <% array << cost.amount.to_s.to_d %> 
@@ -34,9 +31,7 @@
 
         <%= f.number_field :amount, :class => 'text_field', :step => 'any', prepend: "$", hide_label: true, placeholder: "Amount"  %>
 
-        <%= f.submit %>
-      
+        <%= f.submit %>  
     <% end %>
   </div>
-</div>
 </div>

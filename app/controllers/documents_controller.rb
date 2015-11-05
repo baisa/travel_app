@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
-
+  layout "left_menu"
+  
   def index
     @trip = Trip.find(params[:trip_id])
     @documents = @trip.documents.all

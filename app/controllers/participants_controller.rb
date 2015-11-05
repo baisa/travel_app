@@ -1,5 +1,6 @@
 class ParticipantsController < ApplicationController
-
+  layout "left_menu"
+  
   def index
     @trip = Trip.find(params[:trip_id])
     @participants = @trip.participants.all

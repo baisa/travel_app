@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-
+  layout "left_menu"
   def index
     @trip = Trip.find(params[:trip_id])
     @todos = @trip.todos.all
