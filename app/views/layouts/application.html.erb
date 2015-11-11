@@ -21,29 +21,20 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">              
             <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to 'See all my trips', trips_path %></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, user <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Sign out</a></li>
-                </ul>
-              </li>
+              <% if current_user %>
+                <li><%= link_to 'See all my trips', trips_path %></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, <%= current_user.name %>! <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"><%= link_to "Log Out", session_path("current"), method: "delete" %></a></li>
+                  </ul>
+                </li>
+              <% else %>
+                <li><%= link_to "Sign Up", new_user_path %></li>
+                <li><%= link_to "Log In", new_session_path %></li>
+              <% end %>
             </ul>
           </div>
-
-          <div>
-            <% if current_user %>
-              <%= link_to 'See all my trips', trips_path %>
-              Logged in as <%= current_user.email %>
-              <%= link_to "Log Out", session_path("current"), method: "delete" %>
-            <% else %>
-              <%= link_to "Sign Up", new_user_path %> or
-              <%= link_to "Log In", new_session_path %>
-            <% end %>
-          </div>
-
-
-
         </div>
       </nav>
     </div>
