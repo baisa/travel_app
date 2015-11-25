@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104111836) do
+ActiveRecord::Schema.define(version: 20151125212501) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "participant_id"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 20151104111836) do
 
   add_index "documents", ["trip_id"], name: "index_documents_on_trip_id"
 
+  create_table "maps", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "maps", ["trip_id"], name: "index_maps_on_trip_id"
+
   create_table "participants", force: :cascade do |t|
     t.string   "name"
     t.integer  "trip_id"
@@ -51,6 +59,17 @@ ActiveRecord::Schema.define(version: 20151104111836) do
   end
 
   add_index "participants", ["trip_id"], name: "index_participants_on_trip_id"
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "places", ["trip_id"], name: "index_places_on_trip_id"
 
   create_table "todos", force: :cascade do |t|
     t.text     "task"
