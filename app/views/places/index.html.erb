@@ -18,13 +18,40 @@
         <td><%= place.name %></td>
         <td><%= place.latitude %></td>
         <td><%= place.longitude %></td>
- 
-
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+  <script>
+    var map;
+    function initMap() {
+       map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 7,
+        center: {lat: 47.36, lng: 8.55 }
+      });
+    }
+
+    function placeMarkerAndPanTo(latLng, map) {
+      var marker = new google.maps.Marker({
+        position: latLng,
+        map: map
+      });
+      map.panTo(latLng);
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQbb4j5LlALKOW9ckIK792kRi4hNB7yQM"></script>
+
+<div id="map" style="height: 600px; width: 300px"></div>
+<script> 
+  $(document).ready(function(){
+    initMap();
+    var points = <%= @places.map { |p| { lat: p.latitude, lng: p.longitude } }.to_json.html_safe %>;
+    for (var i = 0; i < points.length; i++) {
+      placeMarkerAndPanTo(points[i], map);
+    };
+  });
+</script>
 
 <%= link_to 'New Place', new_trip_place_path %>

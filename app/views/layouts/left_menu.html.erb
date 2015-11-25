@@ -44,7 +44,7 @@
           <li role="presentation"><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, trip_path(@trip) %></li>
           <li role="presentation" class="active"><%= link_to '<i class="fa fa-list-ol"></i> Todo before trip'.html_safe, trip_todos_path(@trip) %></li>
           <li role="presentation"><%= link_to '<i class="fa fa-users"></i> People'.html_safe, trip_participants_path(@trip) %></li>
-          <li role="presentation"><%= link_to '<i class="fa fa-globe"></i> Journey map'.html_safe, trip_todos_path(@trip) %></li>
+          <li role="presentation"><%= link_to '<i class="fa fa-globe"></i> Journey map'.html_safe, trip_places_path(@trip) %></li>
           <li role="presentation"><%= link_to '<i class="fa fa-calendar"></i> Plan and ideas'.html_safe, trip_todos_path(@trip) %></li>
           <li role="presentation"><%= link_to '<i class="fa fa-file-text-o"></i> Documents'.html_safe, trip_documents_path(@trip) %></li>
           <li role="presentation"><%= link_to '<i class="fa fa-dollar"></i> Costs'.html_safe, trip_costs_path(@trip) %></li>
