@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  resources :places
   resources :sessions
   resources :users
   get 'main/index'
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
     resources :documents
     resources :participants
     resources :todos
+    resources :places
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

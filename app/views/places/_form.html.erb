@@ -1,4 +1,4 @@
-<%= form_for(@place) do |f| %>
+<%= form_for(@place, url: trip_places_path) do |f| %>
   <% if @place.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
@@ -23,10 +23,7 @@
     <%= f.label :longitude %><br>
     <%= f.text_field :longitude %>
   </div>
-  <div class="field">
-    <%= f.label :trip_id %><br>
-    <%= f.text_field :trip_id %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -10,7 +10,7 @@ class TripsController < ApplicationController
     @elems = [
       { name: "People", url: trip_participants_path(@trip), icon: "fa-users" },
       { name: "Todo before trip", url: trip_todos_path(@trip), icon: "fa-list-ol" },
-      { name: "Journey map", url: trip_documents_path(@trip), icon: "fa-globe" },
+      { name: "Journey map", url: trip_places_path(@trip), icon: "fa-globe" },
       { name: "Plan and ideas", url: trip_documents_path(@trip), icon: "fa-calendar" },
       { name: "Documents", url: trip_documents_path(@trip), icon: "fa-file-text-o" },
       { name: "Costs", url: trip_costs_path(@trip), icon: "fa-dollar" },

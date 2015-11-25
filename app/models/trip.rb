@@ -5,5 +5,6 @@ class Trip < ActiveRecord::Base
   has_many :todos, dependent: :destroy
   has_many :user_trips
   has_many :users, through: :user_trips
+  has_many :places, dependent: :destroy
     
 end
