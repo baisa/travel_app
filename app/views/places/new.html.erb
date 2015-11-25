@@ -1,5 +1,33 @@
 <h1>New Place</h1>
 
-<%= render 'form' %>
+<br>
+<div id="map" style="height: 600px; width: 300px"></div>
+<script> 
 
+  $(document).ready(function(){
+    initMap();
+
+    map.addListener('click', function(e) {
+      placeMarkerAndPanTo(e.latLng, map);
+      $("#place_latitude").val(e.latLng.lat);
+      $("#place_longitude").val(e.latLng.lng);
+    });
+  });
+  var marker
+  function placeMarkerAndPanTo(latLng, map) {
+    if (marker) {
+      marker.setPosition(latLng, map);
+    } else {
+      marker = new google.maps.Marker({
+        position: latLng,
+        map: map
+      });
+      map.panTo(latLng);
+    };
+  };
+
+</script>
+<br>
+<%= render 'form' %>
+<br>
 <%= link_to 'Back', trip_places_path %>

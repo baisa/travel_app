@@ -8,6 +8,25 @@
    <link href="path/to/todos.css" media="screen" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <script>
+    var map;
+    function initMap() {
+       map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 7,
+        center: {lat: 47.36, lng: 8.55 }
+      });
+    }
+
+    function placeMarkerAndPanTo(latLng, map) {
+      var marker = new google.maps.Marker({
+        position: latLng,
+        map: map
+      });
+      map.panTo(latLng);
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQbb4j5LlALKOW9ckIK792kRi4hNB7yQM"></script>
+
   <div class="container-fluid" style="padding-left: 6em; padding-right: 6em">
    <div class="row" style="padding-bottom: 6em"> 
     <% flash.each do |name, msg| -%>
