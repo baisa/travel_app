@@ -1,10 +1,12 @@
 class PlacesController < ApplicationController
+  layout "left_menu"
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   # GET /places
   # GET /places.json
   def index
     @places = Place.all
+    @trip = Trip.find(params[:trip_id])
   end
 
   # GET /places/1
@@ -15,6 +17,7 @@ class PlacesController < ApplicationController
   # GET /places/new
   def new
     @place = Place.new
+    @trip = Trip.find(params[:trip_id])
   end
 
   # GET /places/1/edit

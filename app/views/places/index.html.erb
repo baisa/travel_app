@@ -18,13 +18,22 @@
         <td><%= place.name %></td>
         <td><%= place.latitude %></td>
         <td><%= place.longitude %></td>
- 
-
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
+<div id="map" style="height: 600px; width: 300px"></div>
+<script> 
+  $(document).ready(function(){
+    initMap();
+    var points = <%= @places.map { |p| { lat: p.latitude, lng: p.longitude } }.to_json.html_safe %>;
+    for (var i = 0; i < points.length; i++) {
+      placeMarkerAndPanTo(points[i], map);
+    };
+  });
+</script>
 
 <%= link_to 'New Place', new_trip_place_path %>
