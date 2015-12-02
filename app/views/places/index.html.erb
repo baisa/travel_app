@@ -18,10 +18,17 @@
         <td><%= place.name %></td>
         <td><%= place.latitude %></td>
         <td><%= place.longitude %></td>
+        <td><%= link_to 'Destroy', [place.trip, place],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
+ 
+
 
 <br>
 
