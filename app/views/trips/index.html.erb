@@ -1,22 +1,22 @@
 <div class="panel panel-default">
   <div class="panel-heading">All my trips</div>
   <table class="table">
-      <tr>
-    <th>Title</th>
-    <th>Description</th>
-  </tr>
- 
-  <% @trips.each do |trip| %>
     <tr>
-      <td><%= trip.title %></td>
-      <td><%= trip.description %></td>
-      <td><%= link_to 'Show', trip_path(trip) %></td>
-      <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
-      <td><%= link_to 'Destroy', trip_path(trip),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+      <th>Title</th>
+      <th>Description</th>
     </tr>
-  <% end %>
+ 
+    <% @trips.each do |trip| %>
+      <tr>
+        <td><%= trip.title %></td>
+        <td><%= trip.description %></td>
+        <td><%= link_to 'Show', trip_path(trip) %></td>
+        <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
+        <td><%= link_to 'Destroy', trip_path(trip),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
   </table>
 </div>
 <%= link_to 'New trip', new_trip_path %>
