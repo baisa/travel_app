@@ -1,18 +1,17 @@
-<div class="col-md-10">
-  <h1> Trips documents </h1>
-  <table>
+<h1> Trips documents </h1>
+<table>
+  <tr>
+    <th>Title</th> 
+  </tr>
+  <% @documents.each do |document| %>
     <tr>
-      <th>Title</th> 
+      <td><%= document.title %></td>
+      <td><a href=<%= document.file %>> Show </a></td>
+      <td><%= link_to 'Destroy', [document.trip, document],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
-    <% @documents.each do |document| %>
-      <tr>
-        <td><%= document.title %></td>
-        <td><a href=<%= document.file %>> Show </a></td>
-        <td><%= link_to 'Destroy', [document.trip, document],
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-   </table>
-  <%= link_to 'New Document', new_trip_document_path %>
-</div>
+  <% end %>
+ </table>
+<%= link_to 'New Document', new_trip_document_path %>
+

@@ -8,7 +8,7 @@
    <link href="path/to/todos.css" media="screen" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <script>
+  <script>
     var map;
     function initMap() {
        map = new google.maps.Map(document.getElementById('map'), {
@@ -28,51 +28,53 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQbb4j5LlALKOW9ckIK792kRi4hNB7yQM"></script>
 
   <div class="container-fluid" style="padding-left: 6em; padding-right: 6em">
-   <div class="row" style="padding-bottom: 6em"> 
-    <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end -%>
-    <div class="row">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">TRAVEL APP</a>
+      <div class="row" style="padding-bottom: 6em"> 
+      <% flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, class: name %>
+      <% end -%>
+      <div class="row">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">TRAVEL APP</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  
+              <ul class="nav navbar-nav navbar-right">
+                <% if current_user %>
+                  <li><%= link_to 'See all my trips', trips_path %></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, <%= current_user.name %>! <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#"><%= link_to "Log Out", session_path("current"), method: "delete" %></a></li>
+                    </ul>
+                  </li>
+                <% else %>
+                  <li><%= link_to "Sign Up", new_user_path %></li>
+                  <li><%= link_to "Log In", new_session_path %></li>
+                <% end %>
+              </ul>
+            </div>
           </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  
-            <ul class="nav navbar-nav navbar-right">
-              <% if current_user %>
-                <li><%= link_to 'See all my trips', trips_path %></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, <%= current_user.name %>! <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#"><%= link_to "Log Out", session_path("current"), method: "delete" %></a></li>
-                  </ul>
-                </li>
-              <% else %>
-                <li><%= link_to "Sign Up", new_user_path %></li>
-                <li><%= link_to "Log In", new_session_path %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-    <div class="row" style="display:flex">
-      <div class="col-md-2">
-        <ul class="nav nav-pills nav-stacked">
-          <li role="presentation"><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, trip_path(@trip) %></li>
-          <li role="presentation" class="active"><%= link_to '<i class="fa fa-list-ol"></i> Todo before trip'.html_safe, trip_todos_path(@trip) %></li>
-          <li role="presentation"><%= link_to '<i class="fa fa-users"></i> People'.html_safe, trip_participants_path(@trip) %></li>
-          <li role="presentation"><%= link_to '<i class="fa fa-globe"></i> Journey map'.html_safe, trip_places_path(@trip) %></li>
-          <li role="presentation"><%= link_to '<i class="fa fa-calendar"></i> Plan and ideas'.html_safe, trip_todos_path(@trip) %></li>
-          <li role="presentation"><%= link_to '<i class="fa fa-file-text-o"></i> Documents'.html_safe, trip_documents_path(@trip) %></li>
-          <li role="presentation"><%= link_to '<i class="fa fa-dollar"></i> Costs'.html_safe, trip_costs_path(@trip) %></li>
-        </ul>
+        </nav>
       </div>
-    <%= yield %>
+      <div class="row" style="display:flex">
+        <div class="col-md-2">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation"><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, trip_path(@trip) %></li>
+            <li role="presentation" class="active"><%= link_to '<i class="fa fa-list-ol"></i> Todo before trip'.html_safe, trip_todos_path(@trip) %></li>
+            <li role="presentation"><%= link_to '<i class="fa fa-users"></i> People'.html_safe, trip_participants_path(@trip) %></li>
+            <li role="presentation"><%= link_to '<i class="fa fa-globe"></i> Journey map'.html_safe, trip_places_path(@trip) %></li>
+            <li role="presentation"><%= link_to '<i class="fa fa-calendar"></i> Plan and ideas'.html_safe, trip_todos_path(@trip) %></li>
+            <li role="presentation"><%= link_to '<i class="fa fa-file-text-o"></i> Documents'.html_safe, trip_documents_path(@trip) %></li>
+            <li role="presentation"><%= link_to '<i class="fa fa-dollar"></i> Costs'.html_safe, trip_costs_path(@trip) %></li>
+          </ul>
+        </div>
+      <div class="col-md-10">
+      <%= yield %>
+      </div>
+    </div>
   </div>
-  </div>
-  </div>
+</div>
     <nav class="navbar navbar-default navbar-fixed-bottom" style="width: 92.714em; margin-left: 6em">
       <div class="container-fluid">
         <div class="navbar-header">
