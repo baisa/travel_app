@@ -1,19 +1,20 @@
-
-<div class="panel panel-default" style="width: 30%">
-  <div class="panel-heading"><h3>Trip documents</h3></div>
-  <table class="table">
-    <% @documents.each do |document| %>
-      <tr>
-        <td><%= document.title %></td>
-        <td><a href=<%= document.file %>> Show </a></td>
-        <td><%= link_to 'Destroy', [document.trip, document],
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </table>
+<div class="col-md-6">
+  <h3>Trip to <%= @trip.title %></h3>
+  <div class="panel panel-default" style="width: 60%">
+    <div class="panel-heading"><h3>Trip documents</h3></div>
+    <table class="table">
+      <% @documents.each do |document| %>
+        <tr>
+          <td><%= document.title %></td>
+          <td><a href=<%= document.file %>> Show </a></td>
+          <td><%= link_to 'Destroy', [document.trip, document],
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <%= link_to 'New Document', new_trip_document_path %>
 </div>
 
-
-<%= link_to 'New Document', new_trip_document_path %>
 
