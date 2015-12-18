@@ -13,5 +13,24 @@
     </tr>
   <% end %>
  </table>
+
+
+ <div class="row">
+  <% @documents.each do |document| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+       <%= image_tag document.file_url.to_s %>
+        <div class="caption">
+          <h3><%= document.title %></h3>
+          <p>...</p>
+          <p>
+            <button class="btn btn-primary" role="button"><a href=<%= document.file %>> Show </a></button>
+            
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 <%= link_to 'New Document', new_trip_document_path %>
 
