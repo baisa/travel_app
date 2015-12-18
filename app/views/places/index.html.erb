@@ -1,29 +1,33 @@
-  <p id="notice"><%= notice %></p>
-  <h1>Listing Places</h1>
+<p id="notice"><%= notice %></p>
 
-    <table>
-      <thead>
-        <tr>
+
+<div class="col-md-6">
+  <h3>Trip to <%= @trip.title %></h3>
+  <div class="panel panel-default" style="width: 70%">
+    <div class="panel-heading"><h3>Listing Places</h3></div>
+    <table class="table">
+      <tr>
           <th>Name</th>
           <th>Latitude</th>
           <th>Longitude</th>
           <th colspan="3"></th>
+      </tr>
+      <% @places.each do |place| %>
+        <tr> 
+          <td><%= place.name %></td>
+          <td><%= place.latitude.round(2) %></td>
+          <td><%= place.longitude.round(2) %></td>
+          <td><%= link_to 'Destroy', [place.trip, place],
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
         </tr>
-      </thead>
-
-      <tbody>
-        <% @places.each do |place| %>
-          <tr>
-            <td><%= place.name %></td>
-            <td><%= place.latitude.round(2) %></td>
-            <td><%= place.longitude.round(2) %></td>
-            <td><%= link_to 'Destroy', [place.trip, place],
-                    method: :delete,
-                    data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
+      <% end %>
     </table>
+  </div>
+</div>
+
+
+<div class="col-md-6">
 
   <div id="map" style="height: 400px; width: 500px"></div>
   <script> 
@@ -36,4 +40,5 @@
     });
   </script>
 
-  <%= link_to 'New Place', new_trip_place_path %>
+  <%= link_to 'Add a new place', new_trip_place_path %>
+</div>
