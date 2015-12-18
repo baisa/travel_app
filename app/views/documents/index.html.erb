@@ -1,36 +1,19 @@
-<h1> Trips documents </h1>
-<table>
-  <tr>
-    <th>Title</th> 
-  </tr>
-  <% @documents.each do |document| %>
-    <tr>
-      <td><%= document.title %></td>
-      <td><a href=<%= document.file %>> Show </a></td>
-      <td><%= link_to 'Destroy', [document.trip, document],
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
- </table>
 
-
- <div class="row">
-  <% @documents.each do |document| %>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-       <%= image_tag document.file_url.to_s %>
-        <div class="caption">
-          <h3><%= document.title %></h3>
-          <p>...</p>
-          <p>
-            <button class="btn btn-primary" role="button"><a href=<%= document.file %>> Show </a></button>
-            
-          </p>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<div class="panel panel-default" style="width: 30%">
+  <div class="panel-heading"><h3>Trip documents</h3></div>
+  <table class="table">
+    <% @documents.each do |document| %>
+      <tr>
+        <td><%= document.title %></td>
+        <td><a href=<%= document.file %>> Show </a></td>
+        <td><%= link_to 'Destroy', [document.trip, document],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>
+
+
 <%= link_to 'New Document', new_trip_document_path %>
 
