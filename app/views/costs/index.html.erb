@@ -18,16 +18,15 @@
       <% end %>
     </table>
   </div>
+    <% array = [] %>
+    <% @costs.each do |cost| %>
+      <% array << cost.amount.to_s.to_d %> 
+    <% end %>
+    <p>
+      <h3> Estimated cost of the trip: <%= array.inject(:+) %> EUR</h3>
+    </p>
 </div>
 <div class="col-md-6">
-  <% array = [] %>
-  <% @costs.each do |cost| %>
-    <% array << cost.amount.to_s.to_d %> 
-    <% end %>
-  <p>
-  <h3> Estimated cost of the trip: <%= array.inject(:+) %> EUR</h3>
-  </p>
-  <br>
   <div style="width: 60%">
     <h4>Add new cost</h4>
     <%= bootstrap_form_for [:trip, @cost] do |f| %>
