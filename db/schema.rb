@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125212501) do
+ActiveRecord::Schema.define(version: 20160103130805) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "participant_id"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 20151125212501) do
   end
 
   add_index "documents", ["trip_id"], name: "index_documents_on_trip_id"
+
+  create_table "ideas", force: :cascade do |t|
+    t.text     "idea"
+    t.datetime "planned_at"
+    t.integer  "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ideas", ["trip_id"], name: "index_ideas_on_trip_id"
 
   create_table "maps", force: :cascade do |t|
     t.integer  "trip_id"

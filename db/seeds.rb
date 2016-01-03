@@ -16,5 +16,5 @@ trips.each do |trip|
   trip.todos.create([{task: 'flight reservations'}, {task: 'change currency'}, {task: 'book a hotel'}])
   trip.costs.create([{title: 'transport', amount: 200.00}, {title: 'accomodation', amount: 350.00}, {title: 'food', amount: 530.00}])
   trip.places.create([{name: 'Oslo', latitude: 59.9500, longitude: 10.7500}, {name: 'Bergen', latitude: 60.3894, longitude: 5.3300},
-    {name: 'Lillehammer', latitude: 61.1300, longitude: 61.1300}])
+    {name: 'Lillehammer', latitude: 61.1300, longitude: 10.4325}])
 end

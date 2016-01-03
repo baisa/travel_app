@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :participants
     resources :todos
     resources :places
+    resources :ideas
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
