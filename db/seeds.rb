@@ -13,4 +13,6 @@ trips = Trip.create([{title: 'Norway', description: 'great outdoor trip'},
 
 trips.each do |trip|
   trip.todos.create([{task: 'flight reservations'}, {task: 'change currency'}, {task: 'book a hotel'}])
+  trips.costs.create([{title: 'transport', amount: '200.00'}, {title: 'accomodation', amount: '350.00'}, {title: 'food', amount: '530.00'}])
 end
+
