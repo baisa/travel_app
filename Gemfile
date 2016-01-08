@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
 # Use SCSS for stylesheets
@@ -26,7 +25,11 @@ gem 'bootstrap_form'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem "compass-rails", "2.0.5"
-
+gem 'jquery-ui-rails'
+group :assets do
+  # ...
+  
+end
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -40,6 +43,8 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 
