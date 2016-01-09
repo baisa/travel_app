@@ -4,13 +4,14 @@
     <div class="panel-heading"><h3>Ideas for this trip</h3></div>
     <table class="table">
       <tr>
-        <th>Idea</th>
-        <th>Amount in EUR</th>
+        <th>What</th>
+        <th>When</th>
       </tr>
       <% @ideas.each do |idea| %>
         <tr> 
           <td><%= idea.idea %></td>
-          <td><%= link_to 'Destroy', [idea.trip, idea],
+          <td><%= idea.planned_at.strftime('%e %B %Y') %></td>
+          <td><%= link_to 'Remove', [idea.trip, idea],
                   method: :delete,
                   data: { confirm: 'Are you sure?' } %></td>
         </tr>
