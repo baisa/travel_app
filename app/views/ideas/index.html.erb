@@ -1,6 +1,6 @@
-<div class="col-md-6">
+<div class="col-md-8">
   <h3>Trip to <%= @trip.title %></h3>
-  <div class="panel panel-default" style="width: 70%">
+  <div class="panel panel-default" style="width: 90%">
     <div class="panel-heading"><h3>Ideas for this trip</h3></div>
     <table class="table">
       <tr>
@@ -10,7 +10,7 @@
       <% @ideas.each do |idea| %>
         <tr> 
           <td><%= idea.idea %></td>
-          <td><%= idea.planned_at.strftime('%e %B %Y') %></td>
+          <td style="width: 140px"><%= idea.planned_at.strftime('%e %B %Y') %></td>
           <td><%= link_to 'Remove', [idea.trip, idea],
                   method: :delete,
                   data: { confirm: 'Are you sure?' } %></td>
@@ -20,8 +20,8 @@
   </div>
 </div>
 
-<div class="col-md-6">
-  <div style="width: 60%">
+<div class="col-md-4">
+  <div style="width: 80%">
     <h4>Add new idea</h4>
     <%= bootstrap_form_for [:trip, @idea] do |f| %>
 
