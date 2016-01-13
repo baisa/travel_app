@@ -12,6 +12,8 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.json
   def show
+    @trip = Trip.find(params[:trip_id])
+    @place = @trip.places.find(params[:id])
   end
 
   # GET /places/new
@@ -61,7 +63,7 @@ class PlacesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @place = @trip.places.find(params[:id])
     @place.destroy
-    redirect_to trip_place_path(@trip)
+    redirect_to trip_places_path(@trip)
   end
 
   private

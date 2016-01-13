@@ -1,10 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 
 <div class="col-md-6">
   <h3>Trip to <%= @trip.title %></h3>
   <div class="panel panel-default" style="width: 70%">
-    <div class="panel-heading"><h3>Listing Places</h3></div>
+    <div class="panel-heading"><h3>Places to visit</h3></div>
     <table class="table">
       <tr>
           <th>Name</th>
@@ -24,6 +22,7 @@
       <% end %>
     </table>
   </div>
+   <%= link_to 'Add a new place', new_trip_place_path %>
 </div>
 
 
@@ -40,5 +39,4 @@
     });
   </script>
 
-  <%= link_to 'Add a new place', new_trip_place_path %>
 </div>

@@ -53,14 +53,6 @@ ActiveRecord::Schema.define(version: 20160103130805) do
 
   add_index "ideas", ["trip_id"], name: "index_ideas_on_trip_id"
 
-  create_table "maps", force: :cascade do |t|
-    t.integer  "trip_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "maps", ["trip_id"], name: "index_maps_on_trip_id"
-
   create_table "participants", force: :cascade do |t|
     t.string   "name"
     t.integer  "trip_id"
@@ -99,9 +91,14 @@ ActiveRecord::Schema.define(version: 20160103130805) do
   end
 
   create_table "user_trips", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "user_trips", ["trip_id"], name: "index_user_trips_on_trip_id"
+  add_index "user_trips", ["user_id"], name: "index_user_trips_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

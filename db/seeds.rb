@@ -18,3 +18,6 @@ trips.each do |trip|
   trip.places.create([{name: 'Oslo', latitude: 59.9500, longitude: 10.7500}, {name: 'Bergen', latitude: 60.3894, longitude: 5.3300},
     {name: 'Lillehammer', latitude: 61.1300, longitude: 10.4325}])
 end
+
+users = User.create([{name: "John", email: "john.example.com", password: "example", password_confirmation: "example" }])
+
