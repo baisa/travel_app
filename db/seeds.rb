@@ -20,4 +20,4 @@ trips.each do |trip|
     {name: 'Lillehammer', latitude: 61.1300, longitude: 10.4325}])
 end
 
-users = User.create([{name: "John", email: "john.example.com", password: "example", password_confirmation: "example" }])
+users = User.create([{name: "John", email: "john@example.com", password: "example", password_confirmation: "example" }])
