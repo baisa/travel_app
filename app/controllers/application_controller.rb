@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
     puts "We are in #{params[:controller]}.#{params[:action]}"
   end
 
+  before_filter do
+    trips_controllers = ["documents", "costs", "trips", "todos"]
+    if trips_controllers.include?(params[:controller]) && !current_user
+      flash[:notice] = "You are not allowed to access this page"
+      redirect_to :root
+    end
+  end
+
 private
 
   def current_user 
