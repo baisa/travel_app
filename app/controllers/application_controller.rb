@@ -7,9 +7,11 @@ class ApplicationController < ActionController::Base
     puts "We are in #{params[:controller]}.#{params[:action]}"
   end
 
+  # block access to non user resources
   before_filter do
     trips_controllers = ["documents", "costs", "trips", "todos"]
-    if trips_controllers.include?(params[:controller]) && !current_user
+   # byebug
+    if trips_controllers.include?(params[:controller]) && !current_user && params[:trip_id] && !current_user.trip_ids.include?(params[:trip_id])
       flash[:notice] = "You are not allowed to access this page"
       redirect_to :root
     end
