@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    render text: request.env['omniauth.auth'].to_yaml
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
@@ -18,3 +19,4 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 end
+

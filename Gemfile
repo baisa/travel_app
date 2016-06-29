@@ -26,6 +26,8 @@ gem 'bootstrap_form'
 gem 'bcrypt', '~> 3.1.7'
 gem "compass-rails", "2.0.5"
 gem 'jquery-ui-rails'
+gem 'omniauth-twitter'
+
 group :assets do
   # ...
   
