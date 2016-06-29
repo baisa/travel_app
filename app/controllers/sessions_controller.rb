@@ -5,13 +5,13 @@ class SessionsController < ApplicationController
   def create
     render text: request.env['omniauth.auth'].to_yaml
     user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to root_url
-    else
-      flash[:notice] = 'Email or password is invalid'
-      render 'new'
-    end
+ #   if user && user.authenticate(params[:password])
+  #    session[:user_id] = user.id
+    #  redirect_to root_url
+  #  else
+   #   flash[:notice] = 'Email or password is invalid'
+   #   render 'new'
+   # end
   end
 
   def destroy
