@@ -1,20 +1,26 @@
 class TripsController < ApplicationController
 
   def index
-    @trips = Trip.all
+    @trips = current_user.trips
     #dostep do wszytskich tripow uzytkownika
   end
 
   def show
     @trip = Trip.find(params[:id])
-    @elems = [
-      { name: "People", url: trip_participants_path(@trip), icon: "fa-users" },
-      { name: "Todo before trip", url: trip_todos_path(@trip), icon: "fa-list-ol" },
-      { name: "Journey map", url: trip_places_path(@trip), icon: "fa-globe" },
-      { name: "Plan and ideas", url: trip_ideas_path(@trip), icon: "fa-calendar" },
-      { name: "Documents", url: trip_documents_path(@trip), icon: "fa-file-text-o" },
-      { name: "Costs", url: trip_costs_path(@trip), icon: "fa-dollar" },
-    ]
+    @users_allowed = @trip.users
+
+    if @users_allowed.include?(current_user)
+      @elems = [
+        { name: "People", url: trip_participants_path(@trip), icon: "fa-users" },
+        { name: "Todo before trip", url: trip_todos_path(@trip), icon: "fa-list-ol" },
+        { name: "Journey map", url: trip_places_path(@trip), icon: "fa-globe" },
+        { name: "Plan and ideas", url: trip_ideas_path(@trip), icon: "fa-calendar" },
+        { name: "Documents", url: trip_documents_path(@trip), icon: "fa-file-text-o" },
+        { name: "Costs", url: trip_costs_path(@trip), icon: "fa-dollar" },
+      ]
+    else
+      raise "You Hacker!!"
+    end
   end
 
   def new

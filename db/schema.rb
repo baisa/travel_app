@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119101126) do
+ActiveRecord::Schema.define(version: 20160906185435) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "participant_id"
@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 20160119101126) do
   create_table "trips", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

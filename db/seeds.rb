@@ -6,10 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-trips = Trip.create([{title: 'Norway', description: 'great outdoor trip'},
+trips = Trip.create([
+  {title: 'Norway', description: 'great outdoor trip'},
   {title: 'Korfu', description: 'easy sunny vacation'},
   {title: 'Switzerland', description: 'skiing in Laax resort'}
-  ])
+])
+
+norway = Trip.find_by(title: "Norway")
+korfu = Trip.find_by(title: "Korfu")
+switzerland = Trip.find_by(title: "Switzerland")
 
 trips.each do |trip|
   trip.participants.create([{name: 'Suze'}, {name: 'Peter'}, {name: 'Ana'}, {name: 'John'}])
@@ -20,5 +25,16 @@ trips.each do |trip|
     {name: 'Lillehammer', latitude: 61.1300, longitude: 10.4325}])
 end
 
-users = User.create([{name: "John", email: "john@example.com", password: "example", password_confirmation: "example", trip_ids: 1},
-  {name: "Anna", email: "anna@example.com", password: "example1", password_confirmation: "example1", trip_ids: [2,3] }])
+users = User.create([
+  {name: "John", email: "john@example.com", password: "example", password_confirmation: "example"},
+  {name: "Anna", email: "anna@example.com", password: "example1", password_confirmation: "example1"}
+])
+
+# associate users with trips
+# Anna
+anna = User.find_by(name: "Anna")
+john = User.find_by(name: "John")
+
+UserTrip.create(user: anna, trip: norway)
+UserTrip.create(user: john, trip: korfu)
+UserTrip.create(user: john, trip: switzerland)
